@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Download, Upload, Image as ImageIcon, ZoomIn, ZoomOut, Move, X, Check } from 'lucide-react';
+import { Download, Upload, Image as ImageIcon, ZoomIn, ZoomOut, Move, X, Check, SlidersHorizontal } from 'lucide-react';
 
 function App() {
   const [backgroundImage, setBackgroundImage] = useState(null);
@@ -20,6 +20,10 @@ function App() {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   
+  // Original image data for re-adjusting
+  const [backgroundOriginal, setBackgroundOriginal] = useState(null);
+  const [posterOriginal, setPosterOriginal] = useState(null);
+
   // Drag and drop state
   const [dragOverField, setDragOverField] = useState(null);
   
@@ -121,6 +125,22 @@ function App() {
     
     const file = e.dataTransfer.files[0];
     handleFileSelect(file, type);
+  };
+
+  // Reopen crop modal for adjusting an already-set image
+  const handleAdjust = (type) => {
+    const original = type === 'background' ? backgroundOriginal : posterOriginal;
+    if (!original) return;
+
+    setCropImageSrc(original.src);
+    setCropImageObj(original.obj);
+    setCropType(type);
+    setCropZoomPercent(original.zoom);
+    setCropZoomInput(original.zoom.toFixed(0));
+    setMinZoomPercent(original.minZoom);
+    setMaxZoomPercent(original.maxZoom);
+    setCropPosition({ ...original.position });
+    setCropModalOpen(true);
   };
 
   // Handle zoom input change
@@ -305,12 +325,24 @@ function App() {
     
     const dataUrl = canvas.toDataURL('image/png');
     
+    // Save original image data for re-adjusting later
+    const originalData = {
+      src: cropImageSrc,
+      obj: cropImageObj,
+      zoom: cropZoomPercent,
+      position: { ...constrainedPos },
+      minZoom: minZoomPercent,
+      maxZoom: maxZoomPercent,
+    };
+
     if (cropType === 'background') {
       setBackgroundImage(dataUrl);
+      setBackgroundOriginal(originalData);
     } else {
       setPosterImage(dataUrl);
+      setPosterOriginal(originalData);
     }
-    
+
     setCropModalOpen(false);
     setCropImageSrc(null);
     setCropImageObj(null);
@@ -546,6 +578,15 @@ function App() {
                     </>
                   )}
                 </label>
+                {backgroundOriginal && (
+                  <button
+                    onClick={() => handleAdjust('background')}
+                    className="mt-2 w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition"
+                  >
+                    <SlidersHorizontal className="w-4 h-4" />
+                    Anpassen
+                  </button>
+                )}
               </div>
             </div>
 
@@ -582,6 +623,15 @@ function App() {
                     </>
                   )}
                 </label>
+                {posterOriginal && (
+                  <button
+                    onClick={() => handleAdjust('poster')}
+                    className="mt-2 w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition"
+                  >
+                    <SlidersHorizontal className="w-4 h-4" />
+                    Anpassen
+                  </button>
+                )}
               </div>
             </div>
           </div>
