@@ -37,7 +37,7 @@ function App() {
   const POSTER_HEIGHT = 1122;
   const POST_WIDTH = 1080;
   const REEL_HEIGHT = 1920;
-  const IMAGE_POST_HEIGHT = 1350;
+  const IMAGE_POST_HEIGHT = 1440;
 
   // Get target dimensions
   const getTargetDimensions = () => {

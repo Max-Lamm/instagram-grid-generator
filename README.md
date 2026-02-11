@@ -19,7 +19,7 @@ Ein browserbasiertes Tool zur Erstellung von nahtlosen 3er-Grid-Posts für Insta
 
 ### Output-Formate:
 - **Reel-Post:** 1080×1920 px (9:16 Format)
-- **Bild-Posts:** 1080×1350 px (4:5 Format)
+- **Bild-Posts:** 1080×1440 px (3:4 Format)
 
 ### Dateinamen:
 - Format: `YYYY-MM-DD_N.png` oder `YYYY-MM-DD_N_reel.png`
