@@ -15,6 +15,8 @@ export default {
           gradient: '#111111',
           card: '#222222',
           input: '#1d1d1d',
+          'input-hover': '#252525',
+          'drop-active': '#2a1a1a',
           border: '#2e2e2e',
           'border-hi': '#3a3a3a',
           text: '#d4d4d4',

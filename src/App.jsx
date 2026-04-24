@@ -559,8 +559,8 @@ function App() {
                   onDrop={(e) => handleDrop(e, 'background')}
                   className={`flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer transition ${
                     dragOverField === 'background'
-                      ? 'border-brand-red bg-[#2a1a1a]'
-                      : 'border-dark-border-hi bg-dark-input hover:bg-[#252525]'
+                      ? 'border-brand-red bg-dark-drop-active'
+                      : 'border-dark-border-hi bg-dark-input hover:bg-dark-input-hover'
                   }`}
                 >
                   {backgroundImage ? (
@@ -595,8 +595,8 @@ function App() {
                   onDrop={(e) => handleDrop(e, 'poster')}
                   className={`flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer transition ${
                     dragOverField === 'poster'
-                      ? 'border-brand-red bg-[#2a1a1a]'
-                      : 'border-dark-border-hi bg-dark-input hover:bg-[#252525]'
+                      ? 'border-brand-red bg-dark-drop-active'
+                      : 'border-dark-border-hi bg-dark-input hover:bg-dark-input-hover'
                   }`}
                 >
                   {posterImage ? (
