@@ -614,7 +614,7 @@ function App() {
 
           {/* Position Selection */}
           <div className="mb-8">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
+            <label className="block text-sm font-semibold text-dark-text mb-3">
               Reel Position
             </label>
             <div className="flex gap-4">
@@ -624,8 +624,8 @@ function App() {
                   onClick={() => setReelPosition(pos)}
                   className={`flex-1 py-3 px-6 rounded-lg font-medium transition ${
                     reelPosition === pos
-                      ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-brand-red text-white shadow-lg'
+                      : 'bg-dark-input text-dark-text hover:bg-[#2a2a2a]'
                   }`}
                 >
                   Reel {pos === 'left' ? 'Links' : pos === 'center' ? 'Mitte' : 'Rechts'}
@@ -637,11 +637,11 @@ function App() {
           {/* Preview */}
           {showPreview && (
             <div className="mb-8">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">Grid-Vorschau</h2>
-              <div className="bg-gray-100 rounded-lg p-4 flex justify-center">
+              <h2 className="text-xl font-semibold text-dark-text-hi mb-4">Grid-Vorschau</h2>
+              <div className="bg-dark-input rounded-lg p-4 flex justify-center">
                 <canvas ref={canvasRefs.preview} className="max-w-full rounded shadow-lg" />
               </div>
-              <p className="text-sm text-gray-500 mt-2 text-center">
+              <p className="text-sm text-dark-muted mt-2 text-center">
                 Gestrichelte Linien zeigen die Post-Grenzen im Instagram-Grid
               </p>
             </div>
@@ -654,8 +654,8 @@ function App() {
               disabled={!canExport}
               className={`flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-lg transition ${
                 canExport
-                  ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-xl hover:scale-105'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  ? 'bg-brand-red text-white hover:shadow-xl hover:scale-105'
+                  : 'bg-[#333333] text-dark-muted cursor-not-allowed'
               }`}
             >
               <Download className="w-6 h-6" />
@@ -664,7 +664,7 @@ function App() {
           </div>
 
           {canExport && (
-            <p className="text-sm text-gray-600 text-center mt-4">
+            <p className="text-sm text-dark-muted text-center mt-4">
               ZIP enthält: {new Date().toISOString().split('T')[0]}_1.png, _2.png, _3_reel.png
             </p>
           )}
