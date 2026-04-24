@@ -685,14 +685,14 @@ function App() {
           onMouseMove={handleCanvasMouseMove}
           onMouseUp={handleCanvasMouseUp}
         >
-          <div className="bg-white rounded-2xl p-6 max-w-4xl w-full">
+          <div className="bg-dark-card rounded-2xl p-6 max-w-4xl w-full">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold text-gray-800">
+              <h2 className="text-2xl font-bold text-dark-text-hi">
                 {cropType === 'background' ? 'Hintergrundbild' : 'Filmplakat'} anpassen
               </h2>
               <button
                 onClick={() => setCropModalOpen(false)}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-dark-muted hover:text-dark-text"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -709,7 +709,7 @@ function App() {
 
             <div className="mb-6">
               <div className="flex items-center gap-4 mb-2">
-                <ZoomOut className="w-5 h-5 text-gray-600" />
+                <ZoomOut className="w-5 h-5 text-dark-muted" />
                 <input
                   type="range"
                   min={minZoom}
@@ -719,7 +719,7 @@ function App() {
                   onChange={(e) => handleZoomSliderChange(e.target.value)}
                   className="flex-1"
                 />
-                <ZoomIn className="w-5 h-5 text-gray-600" />
+                <ZoomIn className="w-5 h-5 text-dark-muted" />
                 <div className="flex items-center gap-1">
                   <input
                     type="text"
@@ -727,12 +727,12 @@ function App() {
                     onChange={handleZoomInputChange}
                     onBlur={handleZoomInputCommit}
                     onKeyDown={(e) => e.key === 'Enter' && handleZoomInputCommit()}
-                    className="w-16 px-2 py-1 text-center border border-gray-300 rounded text-sm"
+                    className="w-16 px-2 py-1 text-center border border-dark-border-hi rounded text-sm bg-dark-input text-dark-text"
                   />
-                  <span className="text-sm text-gray-600">%</span>
+                  <span className="text-sm text-dark-muted">%</span>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="flex items-center gap-2 text-sm text-dark-muted">
                 <Move className="w-4 h-4" />
                 <span>Bild mit der Maus verschieben</span>
               </div>
@@ -741,13 +741,13 @@ function App() {
             <div className="flex gap-4">
               <button
                 onClick={() => setCropModalOpen(false)}
-                className="flex-1 py-3 px-6 rounded-lg font-medium bg-gray-200 text-gray-700 hover:bg-gray-300 transition"
+                className="flex-1 py-3 px-6 rounded-lg font-medium bg-[#2a2a2a] text-dark-text hover:bg-[#333333] transition"
               >
                 Abbrechen
               </button>
               <button
                 onClick={handleCropConfirm}
-                className="flex-1 py-3 px-6 rounded-lg font-medium bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg transition flex items-center justify-center gap-2"
+                className="flex-1 py-3 px-6 rounded-lg font-medium bg-brand-red text-white hover:shadow-lg transition flex items-center justify-center gap-2"
               >
                 <Check className="w-5 h-5" />
                 Übernehmen
