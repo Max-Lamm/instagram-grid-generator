@@ -531,17 +531,17 @@ function App() {
   const canExport = backgroundImage && posterImage;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-dark-bg to-dark-gradient p-8">
       <div className="max-w-6xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">Instagram Grid Post Generator</h1>
-          <p className="text-gray-600 mb-8">Erstelle nahtlose 3er-Grid-Posts mit Filmplakat-Overlay</p>
+        <div className="bg-dark-card rounded-2xl shadow-xl p-8">
+          <h1 className="text-3xl font-bold text-dark-text-hi mb-2">Instagram Grid Post Generator</h1>
+          <p className="text-dark-muted mb-8">Erstelle nahtlose 3er-Grid-Posts mit Filmplakat-Overlay</p>
 
           {/* Upload Section */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             {/* Background Upload */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-3">
+              <label className="block text-sm font-semibold text-dark-text mb-3">
                 Hintergrundbild (3240×1920)
               </label>
               <div className="relative">
@@ -559,16 +559,16 @@ function App() {
                   onDrop={(e) => handleDrop(e, 'background')}
                   className={`flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer transition ${
                     dragOverField === 'background'
-                      ? 'border-purple-500 bg-purple-50'
-                      : 'border-gray-300 hover:bg-gray-50'
+                      ? 'border-brand-red bg-[#2a1a1a]'
+                      : 'border-dark-border-hi bg-dark-input hover:bg-[#252525]'
                   }`}
                 >
                   {backgroundImage ? (
                     <img src={backgroundImage} alt="Background" className="h-full object-contain" />
                   ) : (
                     <>
-                      <Upload className="w-12 h-12 text-gray-400 mb-2" />
-                      <span className="text-sm text-gray-500">Klicken oder Drag & Drop</span>
+                      <Upload className="w-12 h-12 text-dark-muted mb-2" />
+                      <span className="text-sm text-dark-muted">Klicken oder Drag & Drop</span>
                     </>
                   )}
                 </label>
@@ -577,7 +577,7 @@ function App() {
 
             {/* Poster Upload */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-3">
+              <label className="block text-sm font-semibold text-dark-text mb-3">
                 Filmplakat (790×1122)
               </label>
               <div className="relative">
@@ -595,16 +595,16 @@ function App() {
                   onDrop={(e) => handleDrop(e, 'poster')}
                   className={`flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer transition ${
                     dragOverField === 'poster'
-                      ? 'border-purple-500 bg-purple-50'
-                      : 'border-gray-300 hover:bg-gray-50'
+                      ? 'border-brand-red bg-[#2a1a1a]'
+                      : 'border-dark-border-hi bg-dark-input hover:bg-[#252525]'
                   }`}
                 >
                   {posterImage ? (
                     <img src={posterImage} alt="Poster" className="h-full object-contain" />
                   ) : (
                     <>
-                      <ImageIcon className="w-12 h-12 text-gray-400 mb-2" />
-                      <span className="text-sm text-gray-500">Klicken oder Drag & Drop</span>
+                      <ImageIcon className="w-12 h-12 text-dark-muted mb-2" />
+                      <span className="text-sm text-dark-muted">Klicken oder Drag & Drop</span>
                     </>
                   )}
                 </label>
